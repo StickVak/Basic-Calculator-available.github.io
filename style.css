@@ -1,0 +1,149 @@
+button{
+    width: 100%; /* Kapsayıcıya göre tam genişlik */
+    height: 60px; /* Daha az yükseklik */
+    border-radius: 0; /* Kare butonlar */
+    border: none;
+    background-color: #4a4a4a; /* Kırmızı tonu */
+    color: white;
+    font-size: 1.5rem; /* Buton font boyutu */
+    font-weight: normal;
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+}
+
+#keys{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px; /* Çok dar boşluk */
+    padding: 0;
+    background-color: #4a4a4a; /* Kırmızı tonu */
+}
+
+#calculator{
+    background-color: #2e2e2e; /* Daha koyu kırmızı */
+    border-radius: 5px; /* Daha az yuvarlak köşeler */
+    max-width: 320px; /* Örnek görsele göre daha dar */
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Daha hafif gölge */
+    border: none;
+}
+
+#history {
+    display: none; /* Geçmiş alanını gizle */
+}
+
+#history p {
+    margin: 0;
+    padding: 1px 0;
+    text-align: right;
+}
+
+#display{
+    width: calc(100% - 30px); /* Daha az padding */
+    padding: 15px;
+    font-size: 3rem; /* Ekran font boyutu */
+    text-align: right;
+    border: none;
+    background-color: #2e2e2e;
+    color: white; /* Beyaz metin */
+    border-bottom: none;
+}
+
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at 20% 50%, #ff0000 0%, transparent 30%),
+                radial-gradient(circle at 80% 50%, #8b0000 0%, transparent 30%),
+                radial-gradient(circle at 50% 10%, #cc0000 0%, transparent 30%),
+                radial-gradient(circle at 50% 90%, #ff3333 0%, transparent 30%),
+                #2e2e2e; /* Koyu gri arka plan */
+    background-size: 200% 200%; /* Gradient boyutunu büyüt */
+    animation: glowing-orb-animation 20s infinite alternate;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button:hover{
+    background-color: #5a5a5a; /* Kırmızı hover rengi */
+    transform: none; /* Transformasyonu kaldır */
+}
+button:active{
+    background-color: #3a3a3a;
+    transform: none;
+}
+.operator-btn,
+.scientific-btn{
+    background-color: #3a3a3a; /* Daha koyu kırmızı operatör ve bilimsel butonlar */
+    color: white;
+}
+.operator-btn:hover,
+.scientific-btn:hover{
+    background-color: #4a4a4a;
+}
+.clear-btn{
+    background-color: #3a3a3a; /* Temizleme butonu için açık kırmızı */
+    color: white;
+}
+.clear-btn:hover{
+    background-color: #4a4a4a;
+}
+.equals-btn{
+    background-color: #bb86fc; /* Eşittir butonu için canlı kırmızı */
+    color: white;
+}
+.equals-btn:hover{
+    background-color: #d09efd;
+}
+
+/* Yeni stil: Hafıza fonksiyonları için metin etiketleri */
+.memory-label{
+    color: #a0a0a0; /* Hafıza etiketleri için açık kırmızı */
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 5px 0;
+}
+.memory-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #2e2e2e;
+    padding: 5px 0;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    #calculator {
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    #display {
+        font-size: 2.5rem;
+    }
+
+    button {
+        height: 55px;
+        font-size: 1.3rem;
+    }
+}
+
+@keyframes glowing-orb-animation {
+    0% {
+        background-position: 0% 0%;
+    }
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
